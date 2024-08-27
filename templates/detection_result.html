@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        h1 { color: #333; }
+        img { max-width: 100%; height: auto; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Detected Objects</h1>
+    <img src="data:image/png;base64,{{ image }}" alt="Annotated Image">
+    <h2>Detections:</h2>
+    <ul>
+    {% for detection in detections %}
+        <li>Class: {{ detection.class }}, Bounding Box: {{ detection.bbox }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
